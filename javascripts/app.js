@@ -95,11 +95,17 @@ var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
     //console.log($(this).attr("id")) //shows id of button clicked on
     var selectedWeapon = $(this).attr("id");
     PlayerCharacter.weapon = selectedWeapon;
-    console.log(PlayerCharacter.weapon)
+    //console.log(PlayerCharacter.weapon)
   });
 
  $("#goButton").click(function(e) {
-    console.log(PlayerCharacter) 
+    console.log(PlayerCharacter.toString()); 
+
+    var RandomEnemy = new Gauntlet.Combatants.Orc();
+    RandomEnemy.generateClass();
+    RandomEnemy.setWeapon(new BroadSword());
+    console.log(RandomEnemy.toString());
+
   });
 
 
