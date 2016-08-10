@@ -1,7 +1,8 @@
 /*
-  TODO: Modularize this code with IIFE or Browserify
+  TODO: Modularize this code with IIFE
  */
-var Gauntlet = Gauntlet || {};
+var Gauntlet = (function(Gauntlet){
+
 Gauntlet.GuildHall = {};
 
 /*
@@ -123,4 +124,5 @@ Gauntlet.GuildHall.Sorcerer.prototype = new Gauntlet.GuildHall.Mage();
       - Ninja
       - Assassin
  */
-
+  return Gauntlet;
+})(Gauntlet || {})
