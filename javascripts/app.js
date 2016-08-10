@@ -1,51 +1,14 @@
-/*
-  Test code to generate a human player and an orc player
- */
-// var warrior = new Gauntlet.Combatants.Human();
-// warrior.setWeapon(new Gauntlet.Weapon.WarAxe());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
+
+var warrior = new Gauntlet.Combatants.Human();
+warrior.setWeapon(new WarAxe());
+warrior.generateClass();  // This will be used for "Surprise me" option
+
+console.log(warrior.toString());
 
 var orc = new Gauntlet.Combatants.Orc();
 orc.generateClass();
-orc.setWeapon(new Gauntlet.Weapon.BroadSword());
+orc.setWeapon(new BroadSword());
 console.log(orc.toString());
-
-
-var path = document.querySelectorAll('.path');
-console.log(path)
-path.forEach(function(item){
-  item.addEventListener('click', function(e){
-    var value = e.currentTarget.id
-    console.log(value)
-    choosePath(value)
-  })
-})
-
-function choosePath(val){
-  if(val === 'Warrior'){
-    var warrior = new Gauntlet.GuildHall.Warrior()
-    console.log(warrior)
-  }
-  else if(val === 'Valkyrie'){
-    var warrior = new Gauntlet.GuildHall.Valkyrie()
-    console.log(warrior)
-  }
-  else if(val === 'Berserker'){
-    var warrior = new Gauntlet.GuildHall.Berserker()
-    console.log(warrior)
-  }
-  else if(val === 'Monk'){
-    var warrior = new Gauntlet.GuildHall.Berserker()
-  }
-  else if(val === 'Wizard'){
-    var warrior = new Gauntlet.GuildHall.Wizard()
-  }
-  else if(val === 'Sorcerer'){
-    var warrior = new Gauntlet.GuildHall.Sorcerer()
-  }
-  else
-}
 
 /*
   Test code to generate a spell
@@ -54,7 +17,7 @@ var spell = new Gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
 
-$(document).ready(function() {
+$(document).ready(function() { //start game ***
   /*
     Show the initial view that accepts player name
    */
@@ -68,17 +31,13 @@ $(document).ready(function() {
     var nextCard = $(this).attr("next");
     var moveAlong = false;
 
-    switch (nextCard) {
-      case "card--class":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-      case "card--battleground":
-        moveAlong = ($("#player-name").val() !== "");
-        break;
-    }
+        if (nextCard === "card--class") {
+          moveAlong = ($("#player-name").val() !== "");
+        } else if (nextCard === "card--weapon") {
+          moveAlong = ($("#player-name").val() !== "");
+        } else if (nextCard === "card--battleground") {
+          moveAlong = ($("#player-name").val() !== "");
+        }
 
     if (moveAlong) {
       $(".card").hide();
@@ -95,4 +54,42 @@ $(document).ready(function() {
     $("." + previousCard).show();
   });
 
-});
+var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
+
+// click event for classes
+  $("#startCharacter").click(function(e) {
+
+    PlayerCharacter = new Gauntlet.Combatants.Human();
+    //console.log(PlayerCharacter);
+    PlayerCharacter.playerName = $("#player-name").val()
+    //console.log(PlayerCharacter.playerName)
+    //return PlayerCharacter
+  });
+
+
+
+// click event for classes
+  $(".class__link").click(function(e) {
+    //console.log($(this).attr("id")) //shows id of button clicked on
+    var selectedClass = $(this).attr("id");
+    PlayerCharacter.class = new Gauntlet.GuildHall[selectedClass]();
+    //console.log(PlayerCharacter.class)
+    //console.log(PlayerCharacter)
+  });
+
+
+//click event for weapons
+  $(".weapon__link").click(function(e) {
+    //console.log($(this).attr("id")) //shows id of button clicked on
+    var selectedWeapon = $(this).attr("id");
+    PlayerCharacter.weapon = selectedWeapon;
+    console.log(PlayerCharacter.weapon)
+  });
+
+ $("#goButton").click(function(e) {
+    console.log(PlayerCharacter)
+  });
+
+
+
+}); //doc ready end
