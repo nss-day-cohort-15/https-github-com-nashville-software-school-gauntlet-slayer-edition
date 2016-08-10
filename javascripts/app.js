@@ -30,6 +30,7 @@ $(document).ready(function() {
    */
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
+    console.log(this)
     var moveAlong = false;
 
     switch (nextCard) {
@@ -37,6 +38,9 @@ $(document).ready(function() {
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--weapon":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+      case "card--battleground":
         moveAlong = ($("#player-name").val() !== "");
         break;
     }

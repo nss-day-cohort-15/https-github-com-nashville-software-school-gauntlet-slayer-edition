@@ -1,4 +1,6 @@
-var Weapon = function() {
+var Gauntlet = (function (Gauntlet) {
+
+Gauntlet.Weapon = function() {
   this.name = "bare hands";
   this.damage = 1;
   this.hands = 2;
@@ -29,3 +31,4 @@ var WarAxe = function() {
 };
 WarAxe.prototype = new Weapon();
 
+}(Gauntlet || {}))
