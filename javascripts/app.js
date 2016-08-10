@@ -1,15 +1,51 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+// var warrior = new Gauntlet.Combatants.Human();
+// warrior.setWeapon(new Gauntlet.Weapon.WarAxe());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
 
 var orc = new Gauntlet.Combatants.Orc();
 orc.generateClass();
-orc.setWeapon(new BroadSword());
+orc.setWeapon(new Gauntlet.Weapon.BroadSword());
 console.log(orc.toString());
+
+
+var path = document.querySelectorAll('.path');
+console.log(path)
+path.forEach(function(item){
+  item.addEventListener('click', function(e){
+    var value = e.currentTarget.id
+    console.log(value)
+    choosePath(value)
+  })
+})
+
+function choosePath(val){
+  if(val === 'Warrior'){
+    var warrior = new Gauntlet.GuildHall.Warrior()
+    console.log(warrior)
+  }
+  else if(val === 'Valkyrie'){
+    var warrior = new Gauntlet.GuildHall.Valkyrie()
+    console.log(warrior)
+  }
+  else if(val === 'Berserker'){
+    var warrior = new Gauntlet.GuildHall.Berserker()
+    console.log(warrior)
+  }
+  else if(val === 'Monk'){
+    var warrior = new Gauntlet.GuildHall.Berserker()
+  }
+  else if(val === 'Wizard'){
+    var warrior = new Gauntlet.GuildHall.Wizard()
+  }
+  else if(val === 'Sorcerer'){
+    var warrior = new Gauntlet.GuildHall.Sorcerer()
+  }
+  else
+}
 
 /*
   Test code to generate a spell
