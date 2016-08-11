@@ -49,7 +49,7 @@ Gauntlet.Combat = function(first, second) {
       $("#battle_status_area").text(second.playerName + "'s health is now " + second.health).hide().fadeIn(1000).fadeOut(1000, function() {
       $("#player2_stats").html(second.playerName + "'s health is now " + second.health)
         if (second.health <= 0) {
-          $("#battle_status_area").append("<p>" + first.playerName + " won!")
+          $("#battle_status_area").show().text(first.playerName + " won!")
         }
         else {
           $("#battle_status_area").text("Now " + second.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
@@ -57,7 +57,7 @@ Gauntlet.Combat = function(first, second) {
           $("#battle_status_area").text(first.playerName + "'s health is now " + first.health).hide().fadeIn(1000).fadeOut(1000, function() {
           $('#player1_stats').html(`Your health is ${first.health}`)
             if (first.health <= 0) {
-              $("#battle_status_area").append("<p>" + second.playerName + " won!")
+              $("#battle_status_area").show().text(second.playerName + " won!")
             }
         })
         });

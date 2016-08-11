@@ -1,12 +1,12 @@
 var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
+warrior.setWeapon(new Gauntlet.Armory.WarAxe());
 warrior.generateClass();  // This will be used for "Surprise me" option
 
 console.log(warrior.toString());
 
 var orc = new Gauntlet.Combatants.Orc();
 orc.generateClass();
-orc.setWeapon(new BroadSword());
+orc.setWeapon(new Gauntlet.Armory.BroadSword());
 console.log(orc.toString());
 
 /*
@@ -91,12 +91,14 @@ $(document).ready(function() { //start game ***
     var selectedWeapon = $(this).attr("id");
 
     if (selectedWeapon === "Dagger") {
-      PlayerCharacter.setWeapon(new Dagger());
+      PlayerCharacter.setWeapon(new Gauntlet.Armory.Dagger());
     } else if (selectedWeapon === "BroadSword") {
-      PlayerCharacter.setWeapon(new BroadSword());
+      PlayerCharacter.setWeapon(new Gauntlet.Armory.BroadSword());
     } else if (selectedWeapon === "WarAxe") {
-      PlayerCharacter.setWeapon(new WarAxe());
-    }
+      PlayerCharacter.setWeapon(new Gauntlet.Armory.WarAxe());
+    } else if (selectedWeapon === "Hammer") {
+      PlayerCharacter.setWeapon(new Gauntlet.Armory.Hammer());
+    }  
     console.log(PlayerCharacter.weapon)
 
 
@@ -118,7 +120,7 @@ $(document).ready(function() { //start game ***
     var RandomEnemy = new Gauntlet.Combatants.Orc();
     RandomEnemy.playerName = "An orc";
     RandomEnemy.generateClass();
-    RandomEnemy.setWeapon(new BroadSword());
+    RandomEnemy.setWeapon(new Gauntlet.Armory.Dagger);
     console.log(RandomEnemy.toString());
     // console.log(PlayerCharacter)
 
@@ -130,7 +132,7 @@ $(document).ready(function() { //start game ***
     $("#battleground").append("<button class='btn attackButton' id='battlegroundNext'>KILL</button>")
 
     $("#battlegroundNext").click(function () {
-// <<<<<<< HEAD
+
       $("#battleground").hide()
       // $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
       $('#battleArea').show()
@@ -141,7 +143,7 @@ $(document).ready(function() { //start game ***
       // $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
       // $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
       // $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
-// =======
+
 //       $("#battleground").html(""); //final combat display
 //       $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
       $("#player1_stats").html(`Your health is ${PlayerCharacter.health}`);
@@ -149,7 +151,7 @@ $(document).ready(function() { //start game ***
 //       $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
 //       $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
 //       $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
-// >>>>>>> 88ab062f58ef6bf13cc444f0a6cec791a92fdba8
+
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
         // $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")

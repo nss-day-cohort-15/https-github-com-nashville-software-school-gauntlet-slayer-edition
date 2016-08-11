@@ -44,6 +44,22 @@ Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
 
+
+// // generating random weapon
+// Gauntlet.Combatants.Player.prototype.generateWeapon = function() {
+//   // Get a random index from the allowed classes array
+//   var random = Math.round(Math.random() * (this.allowedWeapon.length - 1));
+
+//   // Get the string at the index
+//   var randomWeapon = this.allowedWeapon[random];
+
+//   // Composes the corresponding player class into the player object
+//   this.weapon = new Gauntlet.GuildHall[randomWeapon]();
+
+//   return this.weapon;
+// };
+
+
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array
   var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
@@ -86,6 +102,7 @@ Gauntlet.Combatants.Monster = function() {
   this.health = this.health - 30;
   this.intelligence = this.intelligence -20;
   this.strength = this.strength + 30;
+  this.allowedClasses = ["", "", "", ""]
 };
 
 Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
