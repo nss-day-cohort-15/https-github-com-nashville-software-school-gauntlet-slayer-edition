@@ -1,7 +1,8 @@
 /*
   TODO: Modularize this code with IIFE or Browserify
  */
-var Gauntlet = Gauntlet || {};
+var Gauntlet = (function(Gauntlet) {
+
 Gauntlet.SpellBook = {};
 
 
@@ -32,3 +33,7 @@ Gauntlet.SpellBook.Sphere = function() {
   this.type = this.damageTypes[random];
 };
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
+
+
+  return Gauntlet;
+})(Gauntlet || {})

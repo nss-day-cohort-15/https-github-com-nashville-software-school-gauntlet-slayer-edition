@@ -1,7 +1,7 @@
  /*
   TODO: Modularize this code with IIFE or Browserify
  */
-var Gauntlet = Gauntlet || {};
+var Gauntlet = (function(Gauntlet){
 Gauntlet.Combatants = {};
 
 /*
@@ -32,7 +32,7 @@ Gauntlet.Combatants.Player = function(name) {
       " with ",
       this.health,
       " health. ",
-      (this.class.magical) ? "Able to cast " : " Wielding a ",
+      (this.class.magical) ? "Able to cast " : " Wielding a ", //ternary!
       this.weapon.toString(),
       "!"
     ].join("");
@@ -90,3 +90,5 @@ Gauntlet.Combatants.Monster = function() {
 
 Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
 
+  return Gauntlet;
+})(Gauntlet || {})
