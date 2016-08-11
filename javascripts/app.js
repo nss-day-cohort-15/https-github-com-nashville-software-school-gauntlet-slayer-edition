@@ -98,6 +98,10 @@ $(document).ready(function() { //start game ***
       PlayerCharacter.setWeapon(new Gauntlet.Armory.WarAxe());
     } else if (selectedWeapon === "Hammer") {
       PlayerCharacter.setWeapon(new Gauntlet.Armory.Hammer());
+    } else if (selectedWeapon === "ThrowingStars") {
+      PlayerCharacter.setWeapon(new Gauntlet.Armory.ThrowingStars());
+    } else if (selectedWeapon === "BoStaff") {
+      PlayerCharacter.setWeapon(new Gauntlet.Armory.BoStaff());
     }  
     console.log(PlayerCharacter.weapon)
 
@@ -118,9 +122,9 @@ $(document).ready(function() { //start game ***
 
     //make random enemy
     var RandomEnemy = new Gauntlet.Combatants.Orc();
-    RandomEnemy.playerName = "An orc";
+    RandomEnemy.playerName = "An Orc";
     RandomEnemy.generateClass();
-    RandomEnemy.setWeapon(new Gauntlet.Armory.Dagger);
+    RandomEnemy.generateWeapon();
     console.log(RandomEnemy.toString());
     // console.log(PlayerCharacter)
 
