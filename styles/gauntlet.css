@@ -166,4 +166,12 @@ body {
   border-radius: 20px;
   margin-top: 5%;
   margin-left: 40%;
+
+.attackButton{
+  display: block;
+  margin: 0 auto;
+}
+
+.attackMsg {
+  text-align: center;
 }

@@ -32,7 +32,7 @@ Gauntlet.Combatants.Player = function(name) {
       " with ",
       this.health,
       " health. ",
-      (this.class.magical) ? "Able to cast " : " Wielding a ",
+      (this.class.magical) ? "Able to cast " : " Wielding a ", //ternary!
       this.weapon.toString(),
       "!"
     ].join("");
