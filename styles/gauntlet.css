@@ -131,7 +131,7 @@ body {
   text-align: center;
 }
 
-.player1{
+.player1 {
   text-align: center;
   margin-left: 4%;
   display: inline-block;
@@ -140,7 +140,7 @@ body {
   width: 30%;
 }
 
-.battle_status_div{
+.battle_status_div {
   text-align: center;
   text-align: center;
   display: inline-block;
@@ -169,10 +169,11 @@ body {
   border: 7px groove green;
 }
 
-.attack{
+.attack {
   border-radius: 20px;
   margin-top: 3%;
   margin-left: 40%;
+}
 
 .attackButton{
   display: block;
@@ -183,14 +184,3 @@ body {
   text-align: center;
 }
 
-.winnerArea{
-  height: 400px;
-  width: 50%;
-  z-index: 3;
-  position: relative;
-  top: -400px;
-}
-
-.winnerArea{
-  border: 10px solid black;
-}
