@@ -41,21 +41,21 @@ Gauntlet.Combat = function(first, second) {
     $("#enemyHealthMsg").hide();
     $("#combatText1").text(first.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
       second.health = Math.floor(hp2 - ((first.strength * .01 * first.weapon.damage) * .5))
-      $("#combatText2").text(second.playerName + "'s health is now " + second.health).hide().fadeIn(1000).fadeOut(2000, function() {
-        $("#combatText1").text("Now " + second.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
-          first.health = Math.floor(hp1 - ((second.strength * .01 * second.weapon.damage) * .5))
-          $("#combatText2").text(first.playerName + "'s health is now " + first.health).hide().fadeIn(1000).fadeOut(2000, function() {
-        if (hp2 <= 0) {
+      $("#combatText2").text(second.playerName + "'s health is now " + second.health).hide().fadeIn(1000).fadeOut(1000, function() {
+        if (second.health <= 0) {
           $("#battleground").html("");
           $("#battleground").prepend("<p>" + first.playerName + " won!")
-        } else if (hp1 <= 0) {
-          $("#battleground").html("");
-          $("#battleground").prepend("<p>" + second.playerName + " won!")
-        }
-
-            
-        })
-      });
+        } else {
+          $("#combatText1").text("Now " + second.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
+            first.health = Math.floor(hp1 - ((second.strength * .01 * second.weapon.damage) * .5))
+            $("#combatText2").text(first.playerName + "'s health is now " + first.health).hide().fadeIn(1000).fadeOut(1000, function() {
+              if (first.health <= 0) {
+                $("#battleground").html("");
+                $("#battleground").prepend("<p>" + second.playerName + " won!")
+              }
+          })
+        });
+      }
     });
   })
 
@@ -70,6 +70,14 @@ Gauntlet.Combat = function(first, second) {
 
  
 
+
+  // if (hp2 <= 0) {
+  //   $("#battleground").html("");
+  //   $("#battleground").prepend("<p>" + first.playerName + " won!")
+  // } else if (hp1 <= 0) {
+  //   $("#battleground").html("");
+  //   $("#battleground").prepend("<p>" + second.playerName + " won!")
+  // }
   
 
   //console.log(first, second)
@@ -84,7 +92,7 @@ Gauntlet.Combat = function(first, second) {
 
 
 
-}
+}  // paired with Guantlet.Combat method
 
 
   return Gauntlet;

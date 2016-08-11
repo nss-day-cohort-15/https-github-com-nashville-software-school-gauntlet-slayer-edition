@@ -129,9 +129,9 @@ $(document).ready(function() { //start game ***
     // console.log(PlayerCharacter)
 
     $("#battleground").prepend("<p id='msg'>Welcome adventurer! You are " + PlayerCharacter.toString() + "<p>");
-    $("#msg").hide().fadeIn(2000).fadeOut(2000, function() {
+    $("#msg").hide().fadeIn(1000).fadeOut(1000, function() {
       $("#battleground").prepend("<p id='msg2'>Look out! It's " + RandomEnemy.toString() + "<p>")
-      $("#msg2").hide().fadeIn(2000).fadeOut(2000);
+      $("#msg2").hide().fadeIn(1000).fadeOut(1000);
     });
 
 
@@ -144,7 +144,6 @@ $(document).ready(function() { //start game ***
       $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
       $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
       $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
-      
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
         $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
