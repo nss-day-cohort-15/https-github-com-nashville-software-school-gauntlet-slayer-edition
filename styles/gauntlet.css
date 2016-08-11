@@ -16,12 +16,10 @@ body {
   min-width: 500px;
 }
 
-
-
 /*
   Section styles
  */
-.card { 
+.card {
   display: none;
 }
 
@@ -102,4 +100,97 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+/*battle area styles*/
+.card--battleArea{
+  display: none;
+  padding: -1.5%;
+  padding-top: -2%;
+  padding-bottom: 47%;
+  margin: -2%;
+  background-image: url('http://i39.servimg.com/u/f39/17/72/50/13/the_ce10.jpg');
+  background-size: cover;
+  height: 100vh;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}
+
+.down{
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bolder;
+  text-align: center;
+  padding-top: 2%;
+}
+
+.player1_name{
+  font-family: 'Cinzel Decorative', cursive;
+  margin-bottom: 2%;
+  font-weight: 50%;
+  text-align: center;
+}
+
+.player1{
+  text-align: center;
+  margin-left: 4%;
+  display: inline-block;
+  border: 7px groove green;
+  height: 400px;
+  width: 30%;
+}
+
+.battle_status_div{
+  text-align: center;
+  text-align: center;
+  display: inline-block;
+  border: 7px groove green;
+  width: 30%;
+  height: 450px;
+}
+
+.battle_status_head{
+  font-family: 'Cinzel Decorative', cursive;
+  margin-bottom: 2%;
+}
+
+.player2_name{
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 50%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.player2{
+  text-align: center;
+  width: 30%;
+  display: inline-block;
+  height: 400px;
+  border: 7px groove green;
+}
+
+.attack{
+  border-radius: 20px;
+  margin-top: 3%;
+  margin-left: 40%;
+
+.attackButton{
+  display: block;
+  margin: 0 auto;
+}
+
+.attackMsg {
+  text-align: center;
+}
+
+.winnerArea{
+  height: 400px;
+  width: 50%;
+  z-index: 3;
+  position: relative;
+  top: -400px;
+}
+
+.winnerArea{
+  border: 10px solid black;
 }
