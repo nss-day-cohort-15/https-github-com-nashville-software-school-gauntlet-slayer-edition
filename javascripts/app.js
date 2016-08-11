@@ -123,23 +123,33 @@ $(document).ready(function() { //start game ***
     // console.log(PlayerCharacter)
 
     $("#battleground").prepend("<p id='msg'>Welcome adventurer! You are " + PlayerCharacter.toString() + "<p>");
-    $("#msg").hide().fadeIn(2000).fadeOut(2000, function() {
+    $("#msg").hide().fadeIn(1000).fadeOut(1000, function() {
       $("#battleground").prepend("<p id='msg2'>Look out! It's " + RandomEnemy.toString() + "<p>")
-      $("#msg2").hide().fadeIn(2000).fadeOut(2000);
+      $("#msg2").hide().fadeIn(1000).fadeOut(1000);
     });
     $("#battleground").append("<button class='btn attackButton' id='battlegroundNext'>KILL</button>")
 
     $("#battlegroundNext").click(function () {
+// <<<<<<< HEAD
       $("#battleground").hide()
       // $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
       $('#battleArea').show()
       $('#player1_name').html(PlayerCharacter.playerName)
       $('#player2_name').html(RandomEnemy.playerName)
-      $("#player1").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
-      $("#player2").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
+      // $("#player1").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
+      // $("#player2").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
       // $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
       // $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
       // $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
+// =======
+//       $("#battleground").html(""); //final combat display
+//       $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
+      $("#player1_stats").html(`Your health is ${PlayerCharacter.health}`);
+      $("#player2_stats").html(`Enemy's health is ${RandomEnemy.health}`);
+//       $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
+//       $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
+//       $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
+// >>>>>>> 88ab062f58ef6bf13cc444f0a6cec791a92fdba8
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
         // $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
