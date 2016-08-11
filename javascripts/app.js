@@ -12,7 +12,7 @@ console.log(orc.toString());
 /*
   Test code to generate a spell
  */
-var spell = new Gauntlet.SpellBook.Sphere();
+var spell = new Gauntlet.SpellBook.Whirlwind();
 console.log("spell: ", spell.toString());
 
 
@@ -87,9 +87,9 @@ $(document).ready(function() { //start game ***
 
 //click event for weapons
   $(".weapon__link").click(function(e) {
-    //console.log($(this).attr("id")) //shows id of button clicked on
+    console.log($(this).attr("id")) //shows id of button clicked on
     var selectedWeapon = $(this).attr("id");
-
+    console.log(this);
     if (selectedWeapon === "Dagger") {
       PlayerCharacter.setWeapon(new Gauntlet.Armory.Dagger());
     } else if (selectedWeapon === "BroadSword") {
@@ -98,12 +98,15 @@ $(document).ready(function() { //start game ***
       PlayerCharacter.setWeapon(new Gauntlet.Armory.WarAxe());
     } else if (selectedWeapon === "Hammer") {
       PlayerCharacter.setWeapon(new Gauntlet.Armory.Hammer());
+    } else if (selectedWeapon === "Spell") {
+      PlayerCharacter.setWeapon(new Gauntlet.SpellBook.Sphere());
+    }  else if (selectedWeapon === "Whirlwind") {
+      PlayerCharacter.setWeapon(new Gauntlet.SpellBook.Whirlwind());
     }  
+
     console.log(PlayerCharacter.weapon)
 
-
-
-
+//click event for spells
 
     // PlayerCharacter.setWeapon(new selectedWeapon());
     // PlayerCharacter.weapon = selectedWeapon;
