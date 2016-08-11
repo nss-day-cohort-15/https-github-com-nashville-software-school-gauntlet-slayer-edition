@@ -43,4 +43,3 @@ Gauntlet.Armory.Hammer.prototype = new Gauntlet.Armory.Weapon();
 
   return Gauntlet;
 })(Gauntlet || {})
-

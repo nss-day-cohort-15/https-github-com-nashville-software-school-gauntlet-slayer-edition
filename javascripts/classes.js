@@ -118,7 +118,6 @@ Gauntlet.GuildHall.Sorcerer = function() {
 };
 Gauntlet.GuildHall.Sorcerer.prototype = new Gauntlet.GuildHall.Mage();
 
-
 /*
     STEALTH CLASSES
       - Thief

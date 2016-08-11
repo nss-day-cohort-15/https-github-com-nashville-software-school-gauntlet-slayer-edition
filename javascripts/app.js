@@ -1,6 +1,3 @@
-/*
-  Test code to generate a human player and an orc player
- */
 var warrior = new Gauntlet.Combatants.Human();
 warrior.setWeapon(new Gauntlet.Armory.WarAxe());
 warrior.generateClass();  // This will be used for "Surprise me" option
@@ -34,16 +31,6 @@ $(document).ready(function() { //start game ***
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = false;
-    // switch (nextCard) {
-    //   case "card--class":
-    //     moveAlong = ($("#player-name").val() !== "");
-
-    //     break;
-    //   case "card--weapon":
-    //     moveAlong = ($("#player-name").val() !== "");
-
-    //     break;
-    // }
 
         if (nextCard === "card--class") {
           moveAlong = ($("#player-name").val() !== "");
@@ -73,6 +60,12 @@ $(document).ready(function() { //start game ***
 
   // click event for classes
   $("#startCharacter").click(function(e) {
+
+    PlayerCharacter = new Gauntlet.Combatants.Human();
+    //console.log(PlayerCharacter);
+    PlayerCharacter.playerName = $("#player-name").val()
+    $('.player1_name').html(PlayerCharacter.playerName)
+    //console.log(PlayerCharacter.playerName)
     newPlayerName = $("#player-Name").val()
     PlayerCharacter = new Gauntlet.Combatants.Player(newPlayerName);
     //console.log(PlayerCharacter)
@@ -118,9 +111,10 @@ $(document).ready(function() { //start game ***
   });
 
  $("#goButton").click(function(e) {
+    console.log(PlayerCharacter)
     PlayerCharacter.species = "Monster";
     //show created player
-    console.log(PlayerCharacter.toString()); 
+    console.log(PlayerCharacter.toString());
 
     //make random enemy
     var RandomEnemy = new Gauntlet.Combatants.Orc();
@@ -131,40 +125,47 @@ $(document).ready(function() { //start game ***
     // console.log(PlayerCharacter)
 
     $("#battleground").prepend("<p id='msg'>Welcome adventurer! You are " + PlayerCharacter.toString() + "<p>");
-    $("#msg").hide().fadeIn(2000).fadeOut(2000, function() {
+    $("#msg").hide().fadeIn(1000).fadeOut(1000, function() {
       $("#battleground").prepend("<p id='msg2'>Look out! It's " + RandomEnemy.toString() + "<p>")
-      $("#msg2").hide().fadeIn(2000).fadeOut(2000);
+      $("#msg2").hide().fadeIn(1000).fadeOut(1000);
     });
-
-
     $("#battleground").append("<button class='btn attackButton' id='battlegroundNext'>KILL</button>")
+
     $("#battlegroundNext").click(function () {
-      $("#battleground").html("");
-      $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
-      $("#playerOutputCol").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
-      $("#enemyOutputCol").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
-      $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
-      $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
-      $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
+
+      $("#battleground").hide()
+      // $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
+      $('#battleArea').show()
+      $('#player1_name').html(PlayerCharacter.playerName)
+      $('#player2_name').html(RandomEnemy.playerName)
+      // $("#player1").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
+      // $("#player2").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
+      // $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
+      // $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
+      // $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
+
+//       $("#battleground").html(""); //final combat display
+//       $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
+      $("#player1_stats").html(`Your health is ${PlayerCharacter.health}`);
+      $("#player2_stats").html(`Enemy's health is ${RandomEnemy.health}`);
+//       $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
+//       $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
+//       $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
+
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
-        $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
-        $("#attackButton").click(function () {
-          $("#attackMsg").hide();
+        // $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
+        $("#attack").click(function () {
+          // $("#attackMsg").hide();
           Gauntlet.Battle("ThePlayer", PlayerCharacter, RandomEnemy)
         })
       } else {
         $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Oh noes, the enemy gets to attack first!</p></div>")
-        $("#attackButton").click(function () {
-          $("#attackMsg").hide();
-          Gauntlet.Battle("TheEnemy", PlayerCharacter, RandomEnemy)
+        $("#attack").click(function () {
+          // $("#attackMsg").hide();
+          Gauntlet.Battle("TheEnemy", RandomEnemy, PlayerCharacter)
         })
       }
     })
-  });
-
-
-
-
-
-}); //doc ready end
+  })
+}) //doc ready end

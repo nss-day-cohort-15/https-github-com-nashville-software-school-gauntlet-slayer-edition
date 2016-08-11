@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Gauntlet</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/gauntlet.css">
 </head>
@@ -43,16 +44,17 @@
           </a>
         </div>
       </div>
-
+<!-- ///////////////////CHOOSE WARRIOR AREA -->
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-4">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#" id="Warrior">
                 <span class="btn__prompt">></span>
-                <span class="btn__text">Warrior</span>
+                <span class="btn__text" value="warrior">Warrior</span>
               </a>
             </div>
+
 
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#" id="Valkyrie">
@@ -75,7 +77,6 @@
               </a>
             </div>
           </div>
-
           <div class="col-sm-4">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#" id="Wizard">
@@ -98,6 +99,7 @@
               </a>
             </div>
           </div>
+
           <div class="col-sm-4">
             <div class="card__button">
               <a class="class__link btn btn--big btn--blue" href="#" id="Thief">
@@ -139,7 +141,7 @@
         </a>
       </div>
     </section>
-
+<!-- ////////////////////////////CHOOSE WEAPON AREA -->
     <section id="weapon-select" class="card card--weapon">
       <div class="card__prompt">
         <div>choose your weapon</div>
@@ -151,6 +153,10 @@
             <span class="btn__text">Back</span>
           </a>
         </div>
+      </div>
+<!-- ////////////////////////WEAPONS -->
+    <div class="row">
+      <div class="col-md-6">
         <div class="card__button">
           <a class="weapon__link btn btn--big btn--blue" href="#" id="Dagger">
             <span class="btn__prompt">></span>
@@ -179,7 +185,7 @@
           </a>
         </div>        
       </div>
-
+    </div>
 
       <div class="card__button">
         <a class="card__link btn btn--big btn--orange"
@@ -194,6 +200,37 @@
     <section id="battleground" class="card card--battleground">
     </section>
 
+    <section id="battleArea" class="card card--battleArea">
+      <div id="battle_area" class="battle_area">
+        <div class="down">
+          <h1>Battle Ground Area</h1>
+        </div>
+
+        <div class="player1" id="player1">
+          <h2 class="player1_name" id="player1_name">Player 1 Name</h2>
+          <p class="player1_stats" id="player1_stats"></p>
+        </div>
+
+        <div class="battle_status_div" id="battle_status_div">
+          <h2 id="battle_status_head" class="battle_status_head">Battle status area</h3>
+          <p class="battle_status_area" id="battle_status_area"></p>
+        </div>
+
+        <div class="player2" id="player2">
+          <h2 class="player2_name" id="player2_name">Player 2 Name</h2>
+          <p class="player2_stats" id="player2_stats"></p>
+        </div>
+        <div>
+          <input type="button" name="attack" id="attack" value="attack" class="btn attack">
+        </div>
+      </div>
+
+    <section id="winnerArea" class="winnerArea">
+      <div class="winner_text" id="winner_text"></div>
+    </section>
+
+    </section>
+</article>
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="javascripts/weapons.js"></script>
   <script src="javascripts/classes.js"></script>

@@ -32,6 +32,6 @@ Gauntlet.SpellBook.Sphere = function() {
 };
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
 
+
   return Gauntlet;
 })(Gauntlet || {})
-
