@@ -137,13 +137,14 @@ $(document).ready(function() { //start game ***
 
     $("#battleground").append("<button class='btn attackButton' id='battlegroundNext'>KILL</button>")
     $("#battlegroundNext").click(function () {
-      $("#battleground").html("");
+      $("#battleground").html(""); //final combat display
       $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
       $("#playerOutputCol").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
       $("#enemyOutputCol").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
       $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
       $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
       $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
+      
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
         $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
