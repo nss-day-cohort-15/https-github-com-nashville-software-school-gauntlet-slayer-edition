@@ -131,18 +131,17 @@ body {
   text-align: center;
 }
 
-.player1{
+.player1 {
   text-align: center;
   margin-left: 5%;
   display: inline-block;
   border: 7px groove green;
-  height: 400px;
+  height: 450px;
   width: 30%;
 }
 
 .battle_status_div{
-  position: fixed; /*HERE*/
-  text-align: center;
+  position: fixed;
   text-align: center;
   display: inline-block;
   border: 7px groove green;
@@ -166,13 +165,33 @@ body {
   text-align: center;
   width: 30%;
   display: inline-block;
-  height: 400px;
+  height: 450px;
   border: 7px groove green;
 }
 
-.attack{
+.attack {
   border-radius: 20px;
-  margin-top: 6%;
+  margin-top: 5%;
   margin-left: 40%;
 }
+
+.image{
+  width: 72%;
+  height: 75%;
+  margin-bottom: 3%;
+}
+
+.enemy_image{
+  width: 112%;
+  height: 75%;
+  margin-bottom: 3%;
+}
+
+.attackButton{
+  position: fixed;
+}
+
+.attackMsg {
+  text-align: center;
+
 

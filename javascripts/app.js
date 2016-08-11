@@ -118,9 +118,10 @@ $(document).ready(function() { //start game ***
 
     //make random enemy
     var RandomEnemy = new Gauntlet.Combatants.Orc();
-    RandomEnemy.playerName = "An orc";
+    RandomEnemy.playerName = "Orc";
     RandomEnemy.generateClass();
     RandomEnemy.setWeapon(new Gauntlet.Armory.Dagger);
+    $('#enemy_image').attr('src', RandomEnemy.url)
     console.log(RandomEnemy.toString());
     // console.log(PlayerCharacter)
 
@@ -132,37 +133,23 @@ $(document).ready(function() { //start game ***
     $("#battleground").append("<button class='btn attackButton' id='battlegroundNext'>KILL</button>")
 
     $("#battlegroundNext").click(function () {
-
+      //show combat stats
       $("#battleground").hide()
-      // $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
+      $('#image').attr('src', PlayerCharacter.class.url)
       $('#battleArea').show()
       $('#player1_name').html(PlayerCharacter.playerName)
       $('#player2_name').html(RandomEnemy.playerName)
-      // $("#player1").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
-      // $("#player2").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
-      // $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
-      // $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
-      // $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
-
-//       $("#battleground").html(""); //final combat display
-//       $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
       $("#player1_stats").html(`Your health is ${PlayerCharacter.health}`);
       $("#player2_stats").html(`Enemy's health is ${RandomEnemy.health}`);
-//       $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
-//       $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
-//       $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
 
+      //start combat math
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
-        // $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
         $("#attack").click(function () {
-          // $("#attackMsg").hide();
           Gauntlet.Battle("ThePlayer", PlayerCharacter, RandomEnemy)
         })
       } else {
-        $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Oh noes, the enemy gets to attack first!</p></div>")
         $("#attack").click(function () {
-          // $("#attackMsg").hide();
           Gauntlet.Battle("TheEnemy", RandomEnemy, PlayerCharacter)
         })
       }

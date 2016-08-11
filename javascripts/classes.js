@@ -31,6 +31,7 @@ Gauntlet.GuildHall.Fighter = function() {
   this.healthBonus = 20;
   this.strengthBonus = 10;
   this.allowedWeapon = ["dagger", "broad sword", "hammer"]
+  this.url = 'http://freeplayrichardson.com/events/wp-content/uploads/2016/03/tumblr_mg4ax5kZIY1qeybtyo1_250.gif'
 };
 Gauntlet.GuildHall.Fighter.prototype = new Gauntlet.GuildHall.PlayerClass();
 
@@ -80,6 +81,7 @@ Gauntlet.GuildHall.Mage = function() {
   this.healthBonus = this.healthBonus - 10;
   this.strengthBonus = this.strengthBonus - 20;
   this.intelligenceBonus = this.intelligenceBonus + 20;
+  this.url = 'http://vignette3.wikia.nocookie.net/dragons-crown/images/9/97/DC_-_Wizard_Sprite.gif/revision/latest?cb=20130424094257'
 };
 Gauntlet.GuildHall.Mage.prototype = new Gauntlet.GuildHall.PlayerClass();
 
@@ -128,6 +130,7 @@ Gauntlet.GuildHall.Stealth = function() {
   this.healthBonus = 20;
   this.strengthBonus = -10;
   this.intelligenceBonus = 30;
+  this.url = 'http://vignette3.wikia.nocookie.net/kultofpersonality/images/6/60/Vega-hdstance.gif/revision/latest?cb=20110927035547'
 };
 Gauntlet.GuildHall.Stealth.prototype = new Gauntlet.GuildHall.PlayerClass();
 
