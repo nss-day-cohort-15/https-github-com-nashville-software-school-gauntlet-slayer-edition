@@ -103,3 +103,13 @@ body {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
 }
+
+
+.attackButton {
+  display: block;
+  margin: 0 auto;
+}
+
+.attackMsg {
+  text-align: center;
+}

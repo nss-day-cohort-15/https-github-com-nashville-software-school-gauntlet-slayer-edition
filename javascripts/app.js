@@ -128,28 +128,38 @@ $(document).ready(function() { //start game ***
     console.log(RandomEnemy.toString());
     // console.log(PlayerCharacter)
 
-    $("#battleground").append("<p>" + PlayerCharacter.toString() + "<p>")
-    $("#battleground").append("<p>Look out! It's " + RandomEnemy.toString() + "<p>")
-    $("#battleground").append("<button class='btn' id='battlegroundNext'>Next</button>")
+    $("#battleground").prepend("<p id='msg'>Welcome adventurer! You are " + PlayerCharacter.toString() + "<p>");
+    $("#msg").hide().fadeIn(2000).fadeOut(2000, function() {
+      $("#battleground").prepend("<p id='msg2'>Look out! It's " + RandomEnemy.toString() + "<p>")
+      $("#msg2").hide().fadeIn(2000).fadeOut(2000);
+    });
+
+
+    $("#battleground").append("<button class='btn attackButton' id='battlegroundNext'>KILL</button>")
     $("#battlegroundNext").click(function () {
       $("#battleground").html("");
-      $("#battleground").append("<p>Your health: " + PlayerCharacter.health + "<p>");
-      $("#battleground").append("<button class='btn' id='attackButton'>Battle Time!</button>")
+      $("#battleground").prepend("<div class='row' id='combatOutputRow'><div class='col-sm-4' id='playerOutputCol'></div><div class='col-sm-4' id='spacer'></div><div class='col-sm-4' id='enemyOutputCol'></div></div>")
+      $("#playerOutputCol").append("<p id='healthMsg'>Your health is " + PlayerCharacter.health + "<p>");
+      $("#enemyOutputCol").append("<p id='enemyHealthMsg'>Enemy's health is " + RandomEnemy.health + "<p>");
+      $("#battleground").append("<button class='btn attackButton' id='attackButton'>Attack</button>")
+      $("#battleground").prepend("<div class='col-sm-10' id='combatText2'></div>")
+      $("#battleground").prepend("<div class='col-sm-10' id='combatText1'></div>")
       var rng = Math.floor((Math.random() * 2) + 1);
       if (rng === 1) {
-        console.log("Heck yes, you get to attack first")
+        $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
         $("#attackButton").click(function () {
+          $("#attackMsg").hide();
           Gauntlet.Battle("ThePlayer", PlayerCharacter, RandomEnemy)
         })
       } else {
-        console.log("Oh snap, the enemy goes first")
+        $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Oh noes, the enemy gets to attack first!</p></div>")
         $("#attackButton").click(function () {
+          $("#attackMsg").hide();
           Gauntlet.Battle("TheEnemy", PlayerCharacter, RandomEnemy)
         })
       }
     })
   });
-
 
 
 
