@@ -20,6 +20,8 @@ console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() { //start game ***
+
+
   /*
     Show the initial view that accepts player name
    */
@@ -66,15 +68,15 @@ $(document).ready(function() { //start game ***
     $("." + previousCard).show();
   });
 
-var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
+  //star character
+  var PlayerCharacter = {}
 
-// click event for classes
+  // click event for classes
   $("#startCharacter").click(function(e) {
-    
-    PlayerCharacter = new Gauntlet.Combatants.Human();
-    //console.log(PlayerCharacter);
-    PlayerCharacter.playerName = $("#player-name").val()
-    //console.log(PlayerCharacter.playerName)
+    newPlayerName = $("#player-Name").val()
+    PlayerCharacter = new Gauntlet.Combatants.Player(newPlayerName);
+    //console.log(PlayerCharacter)
+
     //return PlayerCharacter
   });
 
@@ -86,7 +88,7 @@ var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
     var selectedClass = $(this).attr("id");
     PlayerCharacter.class = new Gauntlet.GuildHall[selectedClass]();
     //console.log(PlayerCharacter.class)
-    //console.log(PlayerCharacter)
+
   });
 
 
@@ -94,19 +96,62 @@ var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
   $(".weapon__link").click(function(e) {
     //console.log($(this).attr("id")) //shows id of button clicked on
     var selectedWeapon = $(this).attr("id");
-    PlayerCharacter.weapon = selectedWeapon;
-    //console.log(PlayerCharacter.weapon)
+
+    if (selectedWeapon === "Dagger") {
+      PlayerCharacter.setWeapon(new Dagger());
+    } else if (selectedWeapon === "BroadSword") {
+      PlayerCharacter.setWeapon(new BroadSword());
+    } else if (selectedWeapon === "WarAxe") {
+      PlayerCharacter.setWeapon(new WarAxe());
+    }
+    console.log(PlayerCharacter.weapon)
+
+
+
+
+
+    // PlayerCharacter.setWeapon(new selectedWeapon());
+    // PlayerCharacter.weapon = selectedWeapon;
+    // console.log(PlayerCharacter.weapon)
   });
 
  $("#goButton").click(function(e) {
+    PlayerCharacter.species = "Monster";
+    //show created player
     console.log(PlayerCharacter.toString()); 
 
+    //make random enemy
     var RandomEnemy = new Gauntlet.Combatants.Orc();
+    RandomEnemy.playerName = "An orc";
     RandomEnemy.generateClass();
     RandomEnemy.setWeapon(new BroadSword());
     console.log(RandomEnemy.toString());
+    // console.log(PlayerCharacter)
 
+    $("#battleground").append("<p>" + PlayerCharacter.toString() + "<p>")
+    $("#battleground").append("<p>Look out! It's " + RandomEnemy.toString() + "<p>")
+    $("#battleground").append("<button class='btn' id='battlegroundNext'>Next</button>")
+    $("#battlegroundNext").click(function () {
+      $("#battleground").html("");
+      $("#battleground").append("<p>Your health: " + PlayerCharacter.health + "<p>");
+      $("#battleground").append("<button class='btn' id='attackButton'>Battle Time!</button>")
+      var rng = Math.floor((Math.random() * 2) + 1);
+      if (rng === 1) {
+        console.log("Heck yes, you get to attack first")
+        $("#attackButton").click(function () {
+          Gauntlet.Battle("ThePlayer", PlayerCharacter, RandomEnemy)
+        })
+      } else {
+        console.log("Oh snap, the enemy goes first")
+        $("#attackButton").click(function () {
+          Gauntlet.Battle("TheEnemy", PlayerCharacter, RandomEnemy)
+        })
+      }
+    })
   });
+
+
+
 
 
 
