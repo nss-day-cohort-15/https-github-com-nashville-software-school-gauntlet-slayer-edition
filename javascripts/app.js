@@ -1,4 +1,3 @@
-
 var warrior = new Gauntlet.Combatants.Human();
 warrior.setWeapon(new WarAxe());
 warrior.generateClass();  // This will be used for "Surprise me" option
@@ -62,6 +61,7 @@ var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
     PlayerCharacter = new Gauntlet.Combatants.Human();
     //console.log(PlayerCharacter);
     PlayerCharacter.playerName = $("#player-name").val()
+    $('.player1_name').html(PlayerCharacter.playerName)
     //console.log(PlayerCharacter.playerName)
     //return PlayerCharacter
   });
@@ -90,6 +90,9 @@ var PlayerCharacter = new Gauntlet.Combatants.Player(PlayerCharacter);
     console.log(PlayerCharacter)
   });
 
+ $('#attack').on("click", function(){
+
+ })
 
 
 }); //doc ready end

@@ -103,8 +103,11 @@ body {
 }
 
 /*battle area styles*/
-.card--battleground{
+.card--battleArea{
+  display: none;
   padding: -1.5%;
+  padding-top: -2%;
+  padding-bottom: 47%;
   margin: -2%;
   background-image: url('http://i39.servimg.com/u/f39/17/72/50/13/the_ce10.jpg');
   background-size: cover;
@@ -115,31 +118,48 @@ body {
 }
 
 .down{
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bolder;
   text-align: center;
-  position: relative;
-  /*top: 10px;*/
+  padding-top: 2%;
+}
+
+.player1_name{
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 50%;
+  text-align: center;
 }
 
 .player1{
   margin-left: 4%;
   display: inline-block;
-  border: 2px solid black;
+  border: 7px groove green;
   height: 400px;
   width: 30%;
 }
 
 .battle_status{
+  font-family: 'Cinzel Decorative', cursive;
+  text-align: center;
   display: inline-block;
-  border: 2px solid black;
+  border: 7px groove green;
   width: 30%;
   height: 450px;
 }
 
+.player2_name{
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 50%;
+  text-align: center;
+}
+
 .player2{
+  font-family: 'Cinzel Decorative', cursive;
+  text-align: center;
   width: 30%;
   display: inline-block;
   height: 400px;
-  border: 2px solid black;
+  border: 7px groove green;
 }
 
 .attack{
