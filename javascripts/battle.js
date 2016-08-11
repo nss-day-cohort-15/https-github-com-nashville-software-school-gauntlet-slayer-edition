@@ -31,9 +31,9 @@ Gauntlet.Combat = function(first, second) {
     $("#battleground").html("");
     $("#battleground").prepend("<p>" + second.playerName + " won!")
   } else {
-    $("#combatText1").text(first.playerName + " attacked!")
+    $("#battle_status_area").html(first.playerName + " attacked!")
     second.health = Math.floor(hp2 - ((first.strength * .01 * first.weapon.damage) * .5))
-    $("#combatText2").text(second.playerName + "'s health is now " + second.health)
+    $("#battle_status_area").html(second.playerName + "'s health is now " + second.health)
     first.health = Math.floor(hp2 - ((second.strength * .01 * second.weapon.damage) * .5))
 
   }
@@ -47,9 +47,9 @@ Gauntlet.Combat = function(first, second) {
 //weapon speed/crit/hands?  why would you not choot war axe every time lol
 //int heroes/spells
 
- 
 
-  
+
+
 
   //console.log(first, second)
   // console.log(second.playerName + "'s health is now " + second.health)

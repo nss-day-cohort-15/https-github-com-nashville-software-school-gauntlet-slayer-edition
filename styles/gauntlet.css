@@ -126,11 +126,13 @@ body {
 
 .player1_name{
   font-family: 'Cinzel Decorative', cursive;
+  margin-bottom: 2%;
   font-weight: 50%;
   text-align: center;
 }
 
 .player1{
+  text-align: center;
   margin-left: 4%;
   display: inline-block;
   border: 7px groove green;
@@ -138,8 +140,8 @@ body {
   width: 30%;
 }
 
-.battle_status{
-  font-family: 'Cinzel Decorative', cursive;
+.battle_status_div{
+  text-align: center;
   text-align: center;
   display: inline-block;
   border: 7px groove green;
@@ -147,14 +149,19 @@ body {
   height: 450px;
 }
 
+.battle_status_head{
+  font-family: 'Cinzel Decorative', cursive;
+  margin-bottom: 2%;
+}
+
 .player2_name{
   font-family: 'Cinzel Decorative', cursive;
   font-weight: 50%;
+  margin-bottom: 2%;
   text-align: center;
 }
 
 .player2{
-  font-family: 'Cinzel Decorative', cursive;
   text-align: center;
   width: 30%;
   display: inline-block;
