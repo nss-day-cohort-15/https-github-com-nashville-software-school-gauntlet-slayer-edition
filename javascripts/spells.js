@@ -1,9 +1,9 @@
 /*
   TODO: Modularize this code with IIFE or Browserify
  */
-var Gauntlet = Gauntlet || {};
-Gauntlet.SpellBook = {};
+var Gauntlet = (function(Gauntlet) {
 
+Gauntlet.SpellBook = {};
 
 /*
   Base spell function that defines name, damage, damage type
@@ -31,3 +31,7 @@ Gauntlet.SpellBook.Sphere = function() {
   this.type = this.damageTypes[random];
 };
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
+
+  return Gauntlet;
+})(Gauntlet || {})
+

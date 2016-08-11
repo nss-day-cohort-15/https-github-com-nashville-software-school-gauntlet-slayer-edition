@@ -30,6 +30,7 @@ Gauntlet.GuildHall.PlayerClass = function() {
 Gauntlet.GuildHall.Fighter = function() {
   this.healthBonus = 20;
   this.strengthBonus = 10;
+  this.allowedWeapon = ["dagger", "broad sword", "hammer"]
 };
 Gauntlet.GuildHall.Fighter.prototype = new Gauntlet.GuildHall.PlayerClass();
 
