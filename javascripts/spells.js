@@ -5,7 +5,6 @@ var Gauntlet = (function(Gauntlet) {
 
 Gauntlet.SpellBook = {};
 
-
 /*
   Base spell function that defines name, damage, damage type
  */
