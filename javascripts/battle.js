@@ -32,43 +32,34 @@ Gauntlet.Combat = function(first, second) {
     $("#battleground").prepend("<p>" + second.playerName + " won!")
   } else {
     $("#battle_status_area").html(first.playerName + " attacked!")
+
     second.health = Math.floor(hp2 - ((first.strength * .01 * first.weapon.damage) * .5))
-    $("#battle_status_area").html(second.playerName + "'s health is now " + second.health)
+    // $('#player2_stats').html(`Your health is ${second.health}`)
+
     first.health = Math.floor(hp2 - ((second.strength * .01 * second.weapon.damage) * .5))
 
-    $("#player1_stats").html(`Your health is ${first.health}`);
-    $("#player2_stats").html(`Enemy's health is ${second.health}`);
+    // $("#player1_stats").html(`Your health is ${first.health}`);
+    // $("#player2_stats").html(`Enemy's health is ${second.health}`);
   }
-  // if (hp2 <= 0) {
-  //   $("#battleground").html("");
-  //   $("#battleground").prepend("<p>" + first.playerName + " won!")
-  // } else if (hp1 <= 0) {
-  //   $("#battleground").html("");
-  //   $("#battleground").prepend("<p>" + second.playerName + " won!")
-  // } else {
-    // $("#combatText1").text(first.playerName + " attacked!")
-    // second.health = Math.floor(hp2 - ((first.strength * .01 * first.weapon.damage) * .5))
-    // $("#combatText2").text(second.playerName + "'s health is now " + second.health)
-    // $("#combatText1").text("Now " + second.playerName + " attacked!")
-    // first.health = Math.floor(hp1 - ((second.strength * .01 * second.weapon.damage) * .5))
-    // $("#combatText2").text(first.playerName + "'s health is now " + first.health)
+
     $("#healthMsg").hide();
     $("#enemyHealthMsg").hide();
-    $("#combatText1").text(first.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
+    $("#battle_status_area").text(first.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
       second.health = Math.floor(hp2 - ((first.strength * .01 * first.weapon.damage) * .5))
-      $("#combatText2").text(second.playerName + "'s health is now " + second.health).hide().fadeIn(1000).fadeOut(1000, function() {
+      $("#battle_status_area").text(second.playerName + "'s health is now " + second.health).hide().fadeIn(1000).fadeOut(1000, function() {
+      $("#player2_stats").html(second.playerName + "'s health is now " + second.health)
         if (second.health <= 0) {
-          $("#battleground").html("");
-          $("#battleground").prepend("<p>" + first.playerName + " won!")
-        } else {
-          $("#combatText1").text("Now " + second.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
-            first.health = Math.floor(hp1 - ((second.strength * .01 * second.weapon.damage) * .5))
-            $("#combatText2").text(first.playerName + "'s health is now " + first.health).hide().fadeIn(1000).fadeOut(1000, function() {
-              if (first.health <= 0) {
-                $("#battleground").html("");
-                $("#battleground").prepend("<p>" + second.playerName + " won!")
-              }
-          })
+          $("#battle_status_area").append("<p>" + first.playerName + " won!")
+        }
+        else {
+          $("#battle_status_area").text("Now " + second.playerName + " attacked!").hide().fadeIn(1000).fadeOut(1000, function() {
+          first.health = Math.floor(hp1 - ((second.strength * .01 * second.weapon.damage) * .5))
+          $("#battle_status_area").text(first.playerName + "'s health is now " + first.health).hide().fadeIn(1000).fadeOut(1000, function() {
+          $('#player1_stats').html(`Your health is ${first.health}`)
+            if (first.health <= 0) {
+              $("#battle_status_area").append("<p>" + second.playerName + " won!")
+            }
+        })
         });
       }
     });

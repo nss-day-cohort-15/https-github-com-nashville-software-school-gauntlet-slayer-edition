@@ -154,14 +154,14 @@ $(document).ready(function() { //start game ***
       if (rng === 1) {
         // $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Heck yes, you get to attack first</p></div>")
         $("#attack").click(function () {
-          $("#attackMsg").hide();
+          // $("#attackMsg").hide();
           Gauntlet.Battle("ThePlayer", PlayerCharacter, RandomEnemy)
         })
       } else {
         $("#battleground").prepend("<div class='col-sm-10 attackMsg' id='attackMsg'><p>Oh noes, the enemy gets to attack first!</p></div>")
         $("#attack").click(function () {
-          $("#attackMsg").hide();
-          Gauntlet.Battle("TheEnemy", PlayerCharacter, RandomEnemy)
+          // $("#attackMsg").hide();
+          Gauntlet.Battle("TheEnemy", RandomEnemy, PlayerCharacter)
         })
       }
     })

@@ -171,7 +171,7 @@ body {
 
 .attack{
   border-radius: 20px;
-  margin-top: 5%;
+  margin-top: 3%;
   margin-left: 40%;
 
 .attackButton{
@@ -181,4 +181,16 @@ body {
 
 .attackMsg {
   text-align: center;
+}
+
+.winnerArea{
+  height: 400px;
+  width: 50%;
+  z-index: 3;
+  position: relative;
+  top: -400px;
+}
+
+.winnerArea{
+  border: 10px solid black;
 }
