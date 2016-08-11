@@ -133,7 +133,7 @@ body {
 
 .player1{
   text-align: center;
-  margin-left: 4%;
+  margin-left: 5%;
   display: inline-block;
   border: 7px groove green;
   height: 400px;
@@ -141,6 +141,7 @@ body {
 }
 
 .battle_status_div{
+  position: fixed; /*HERE*/
   text-align: center;
   text-align: center;
   display: inline-block;
@@ -151,7 +152,6 @@ body {
 
 .battle_status_head{
   font-family: 'Cinzel Decorative', cursive;
-  margin-bottom: 2%;
 }
 
 .player2_name{
@@ -162,6 +162,7 @@ body {
 }
 
 .player2{
+  margin-left: 30%;
   text-align: center;
   width: 30%;
   display: inline-block;
@@ -171,26 +172,7 @@ body {
 
 .attack{
   border-radius: 20px;
-  margin-top: 3%;
+  margin-top: 6%;
   margin-left: 40%;
-
-.attackButton{
-  display: block;
-  margin: 0 auto;
 }
 
-.attackMsg {
-  text-align: center;
-}
-
-.winnerArea{
-  height: 400px;
-  width: 50%;
-  z-index: 3;
-  position: relative;
-  top: -400px;
-}
-
-.winnerArea{
-  border: 10px solid black;
-}
