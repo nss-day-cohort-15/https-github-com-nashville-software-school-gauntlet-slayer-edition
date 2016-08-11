@@ -126,7 +126,7 @@ $(document).ready(function() { //start game ***
     var RandomEnemy = new Gauntlet.Combatants.Orc();
     RandomEnemy.playerName = "An orc";
     RandomEnemy.generateClass();
-    RandomEnemy.setWeapon(new Gauntlet.Armory.BroadSword());
+    RandomEnemy.setWeapon(new Gauntlet.Armory.Dagger);
     console.log(RandomEnemy.toString());
     // console.log(PlayerCharacter)
 
