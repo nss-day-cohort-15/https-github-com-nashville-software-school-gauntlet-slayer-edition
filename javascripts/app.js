@@ -34,6 +34,10 @@ $(document).ready(function() { //start game ***
           moveAlong = ($("#player-name").val() !== "");
         } else if (nextCard === "card--weapon") {
           moveAlong = ($("#player-name").val() !== "");
+
+          var allowedWeaponIDs = PlayerCharacter.class.allowedWeapon.map(id => `#${id}`).toString()
+          $(allowedWeaponIDs).show()
+
         } else if (nextCard === "card--battleground") {
           moveAlong = ($("#player-name").val() !== "");
         }
@@ -56,7 +60,7 @@ $(document).ready(function() { //start game ***
   //star character
   var PlayerCharacter = {}
 
-  // click event for classes
+  // click event for character name
   $("#startCharacter").click(function(e) {
 
     PlayerCharacter = new Gauntlet.Combatants.Human();
@@ -77,9 +81,13 @@ $(document).ready(function() { //start game ***
   $(".class__link").click(function(e) {
     //console.log($(this).attr("id")) //shows id of button clicked on
     var selectedClass = $(this).attr("id");
-    PlayerCharacter.class = new Gauntlet.GuildHall[selectedClass]();
+    if(selectedClass !== 'randomClass'){
+      PlayerCharacter.class = new Gauntlet.GuildHall[selectedClass]();
+    }
+      else{
+        PlayerCharacter.generateClass()
+      }
     //console.log(PlayerCharacter.class)
-
   });
 
 

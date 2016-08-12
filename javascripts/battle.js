@@ -60,7 +60,7 @@ Gauntlet.Combat = function(first, second) {
         // $("#battle_status_area").show().text(second.playerName + " won!")
         $(".loseImg").fadeIn(2000);
       } else {
-        $("#player2_stats").html(`Health: ${first.health}`)
+        $("#player2_stats").html(`Health: ${second.health}`)
         $('#player1_stats').html(`Health: ${first.health}`)
       }
     }
