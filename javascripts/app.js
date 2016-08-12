@@ -68,7 +68,7 @@ $(document).ready(function() { //start game ***
     //console.log(PlayerCharacter.playerName)
     newPlayerName = $("#player-Name").val()
     PlayerCharacter = new Gauntlet.Combatants.Player(newPlayerName);
-    //console.log(PlayerCharacter)
+    console.log(PlayerCharacter)
 
     //return PlayerCharacter
   });
@@ -87,9 +87,9 @@ $(document).ready(function() { //start game ***
 
 //click event for weapons
   $(".weapon__link").click(function(e) {
-    console.log($(this).attr("id")) //shows id of button clicked on
+    // console.log($(this).attr("id")) //shows id of button clicked on
     var selectedWeapon = $(this).attr("id");
-    console.log(this);
+    // console.log(this);
     if (selectedWeapon === "Dagger") {
       PlayerCharacter.setWeapon(new Gauntlet.Armory.Dagger());
     } else if (selectedWeapon === "BroadSword") {
@@ -102,7 +102,7 @@ $(document).ready(function() { //start game ***
       PlayerCharacter.setWeapon(new Gauntlet.Armory.ThrowingStars());
     } else if (selectedWeapon === "BoStaff") {
       PlayerCharacter.setWeapon(new Gauntlet.Armory.BoStaff());
-    } else if (selectedWeapon === "Spell") {
+    } else if (selectedWeapon === "Sphere") {
       PlayerCharacter.setWeapon(new Gauntlet.SpellBook.Sphere());
     }  else if (selectedWeapon === "Whirlwind") {
       PlayerCharacter.setWeapon(new Gauntlet.SpellBook.Whirlwind());
