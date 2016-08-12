@@ -39,7 +39,7 @@ Gauntlet.Armory.Hammer = function() {
   this.damage = 15;
   this.hands = 2;
 };
-Gauntlet.Armory.WarAxe.prototype = new Gauntlet.Armory.Weapon();
+Gauntlet.Armory.Hammer.prototype = new Gauntlet.Armory.Weapon();
 
 Gauntlet.Armory.ThrowingStars = function() {
   this.name = "ThrowingStars";
