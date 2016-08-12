@@ -175,18 +175,6 @@ body {
   margin-left: 40%;
 }
 
-.image{
-  width: 72%;
-  height: 75%;
-  margin-bottom: 3%;
-}
-
-.enemy_image{
-  width: 112%;
-  height: 75%;
-  margin-bottom: 3%;
-}
-
 .attackButton{
   position: fixed;
 }

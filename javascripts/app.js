@@ -121,7 +121,6 @@ $(document).ready(function() { //start game ***
     RandomEnemy.playerName = "Orc";
     RandomEnemy.generateClass();
     RandomEnemy.setWeapon(new Gauntlet.Armory.Dagger);
-    $('#enemy_image').attr('src', RandomEnemy.url)
     console.log(RandomEnemy.toString());
     // console.log(PlayerCharacter)
 
@@ -135,7 +134,6 @@ $(document).ready(function() { //start game ***
     $("#battlegroundNext").click(function () {
       //show combat stats
       $("#battleground").hide()
-      $('#image').attr('src', PlayerCharacter.class.url)
       $('#battleArea').show()
       $('#player1_name').html(PlayerCharacter.playerName)
       $('#player2_name').html(RandomEnemy.playerName)
