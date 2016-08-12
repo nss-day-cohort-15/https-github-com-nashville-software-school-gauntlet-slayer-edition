@@ -32,6 +32,15 @@ Gauntlet.SpellBook.Sphere = function() {
 };
 Gauntlet.SpellBook.Sphere.prototype = new Gauntlet.SpellBook.Spell();
 
+Gauntlet.SpellBook.Whirlwind = function() {
+  this.name = "whirlwind";
+  this.damage = Math.floor(Math.random() * 10 + 40);
+
+  var random = Math.round(Math.random() * (this.damageTypes.length - 1));
+  this.type = this.damageTypes[random];
+};
+Gauntlet.SpellBook.Whirlwind.prototype = new Gauntlet.SpellBook.Spell();
+
 
   return Gauntlet;
 })(Gauntlet || {})
