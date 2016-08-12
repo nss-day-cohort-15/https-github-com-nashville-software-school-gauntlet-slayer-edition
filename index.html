@@ -11,12 +11,12 @@
 </head>
 
 <body>
-
-  <article id="game-container">
+  <img src="../tavern.png" class="wallpaper" id="wallpaper">
+  <article id="game-container" class="gameContainer">
 
     <section id="player-setup" class="card card--name">
       <div class="card__prompt">
-        <div>RECORD YOUR NAME, ADVENTURER</div>
+        <div class="graphic">RECORD YOUR NAME, ADVENTURER</div>
         <div class="field">
           <input type="text" autofocus="true" id="player-Name" class="field__textinput">
         </div>
@@ -34,7 +34,7 @@
 
     <section id="class-select" class="card card--class">
       <div class="card__prompt">
-        <div>CHOOSE YOUR PATH</div>
+        <div class="graphic">CHOOSE YOUR PATH</div>
         <div>
           <a class="card__back btn btn--small"
              href="#"
@@ -144,7 +144,7 @@
 <!-- ////////////////////////////CHOOSE WEAPON AREA -->
     <section id="weapon-select" class="card card--weapon">
       <div class="card__prompt">
-        <div>choose your weapon</div>
+        <div class="graphic">choose your weapon</div>
         <div>
           <a class="card__back btn btn--small"
              href="#"
@@ -156,7 +156,7 @@
       </div>
 <!-- ////////////////////////WEAPONS -->
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="card__button">
           <a class="weapon__link btn btn--big btn--blue" href="#" id="Dagger">
             <span class="btn__prompt">></span>
@@ -198,38 +198,51 @@
     </section>
 
     <section id="battleground" class="card card--battleground">
+      <div class='row narratorRow'>
+        <div class='col-sm-2'></div>
+        <div class='col-sm-8 narratorDiv' id='narratorDiv'></div>
+      </div>
     </section>
 
     <section id="battleArea" class="card card--battleArea">
+    <img src="../trees.png" class="trees" id="trees">
       <div id="battle_area" class="battle_area">
         <div class="down">
-          <h1>Battle Ground Area</h1>
+<!--           <h1>Battle Ground Area</h1>
+ -->        </div>
+        <div class="row">
+          <div class="player1 col-sm-3" id="player1">
+            <h2 class="player1_name" id="player1_name">Player 1 Name</h2>
+            <p class="player1_stats" id="player1_stats"></p>
+            <img src="../warrior.gif" class="playerImg" id="playerImg">
+            <img src="../dmg.gif" class="dmgImg" id="dmgImg">
+          </div>
+
+            <div class="col-sm-3" id="spacer0">
+
+          </div>
+
+        <!--   <div class="battle_status_div col-sm-3" id="battle_status_div">
+            <h3 id="battle_status_head" class="battle_status_head">Battle status area</h3>
+            <p class="battle_status_area" id="battle_status_area"></p>
+          </div> -->
+
+          <div class="player2 col-sm-3" id="player2">
+            <h2 class="player2_name" id="player2_name">Player 2 Name</h2>
+            <p class="player2_stats" id="player2_stats"></p>
+            <img src="../orc.gif" class="orcImg" id="orcImg">
+            <img src="../dmg.gif" class="dmgImg2" id="dmgImg2">
+          </div>
         </div>
 
-        <div class="player1" id="player1">
-          <h2 class="player1_name" id="player1_name">Player 1 Name</h2>
-          <p class="player1_stats" id="player1_stats"></p>
-        </div>
-
-        <div class="battle_status_div" id="battle_status_div">
-          <h2 id="battle_status_head" class="battle_status_head">Battle status area</h3>
-          <p class="battle_status_area" id="battle_status_area"></p>
-        </div>
-
-        <div class="player2" id="player2">
-          <h2 class="player2_name" id="player2_name">Player 2 Name</h2>
-          <p class="player2_stats" id="player2_stats"></p>
-        </div>
         <div>
-          <input type="button" name="attack" id="attack" value="attack" class="btn attack">
+<!--           <input type="button" name="attack" id="attack" value="attack" class="btn attack"> -->
+          <button id="attack" class="btn attack graphic">Attack</button>
         </div>
       </div>
 
-    <section id="winnerArea" class="winnerArea">
-      <div class="winner_text" id="winner_text"></div>
     </section>
 
-    </section>
 </article>
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="javascripts/weapons.js"></script>

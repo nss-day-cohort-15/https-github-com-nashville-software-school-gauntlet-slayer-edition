@@ -25,6 +25,9 @@ Gauntlet.Combat = function(first, second) {
   //click just happened
   second.health = Math.floor(hp2 - (first.strength * .01 * first.weapon.damage))
   first.health = Math.floor(hp1 - (second.strength * .01 * second.weapon.damage))
+  $(".dmgImg").fadeIn(50).fadeOut(150, function () {
+      $(".dmgImg2").fadeIn(50).fadeOut(150)
+    })
   // $("#battle_status_area").text(second.playerName + "'s health is now " + second.health);
   // $("#battle_status_area").append("<p>" + first.playerName + "'s health is now " + first.health + "</p>")
     if (second.health <= 0) {
