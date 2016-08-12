@@ -94,7 +94,7 @@ Gauntlet.GuildHall.Shaman = function() {
   this.healthBonus = this.healthBonus + 5;
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 20;
-  this.allowedWeapon = ["Sphere", ""];
+  this.allowedWeapon = ["Sphere", "Whirlwind"];
 };
 Gauntlet.GuildHall.Shaman.prototype = new Gauntlet.GuildHall.Mage();
 
@@ -104,7 +104,7 @@ Gauntlet.GuildHall.Wizard = function() {
   this.healthBonus = this.healthBonus - 15;
   this.strengthBonus = this.strengthBonus - 25;
   this.intelligenceBonus = this.intelligenceBonus + 40;
-  this.allowedWeapon = ["Sphere", ""];
+  this.allowedWeapon = ["Sphere", "Whirlwind"];
 };
 Gauntlet.GuildHall.Wizard.prototype = new Gauntlet.GuildHall.Mage();
 
@@ -113,7 +113,7 @@ Gauntlet.GuildHall.Conjurer = function() {
   this.name = "Conjurer";
   this.strengthBonus = this.strengthBonus - 10;
   this.intelligenceBonus = this.intelligenceBonus + 10;
-  this.allowedWeapon = ["Sphere", ""];
+  this.allowedWeapon = ["Sphere", "Whirlwind"];
 };
 Gauntlet.GuildHall.Conjurer.prototype = new Gauntlet.GuildHall.Mage();
 
@@ -123,7 +123,7 @@ Gauntlet.GuildHall.Sorcerer = function() {
   this.healthBonus = this.healthBonus - 5;
   this.strengthBonus = this.strengthBonus - 20;
   this.intelligenceBonus = this.intelligenceBonus + 30;
-  this.allowedWeapon = ["Sphere", ""];
+  this.allowedWeapon = ["Sphere", "Whirlwind"];
 };
 Gauntlet.GuildHall.Sorcerer.prototype = new Gauntlet.GuildHall.Mage();
 
