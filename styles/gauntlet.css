@@ -261,7 +261,6 @@ body {
   background-color: blue;
   border: thick solid lightgrey;
   padding: 8px;
-  border-radius: 20px;
 }
 
 .dmgImg {
@@ -301,5 +300,80 @@ body {
   left:50px;
   top:130px;
   z-index: 1;
+}
+
+
+.winImg {
+  height: 205px;
+  position:absolute;
+  left:-300px;
+  top:50px;
+  z-index: 2;
+  display: none;
+}
+
+.loseImg {
+  height: 205px;
+  position:absolute;
+  left:-250px;
+  top:50px;
+  z-index: 2;
+  display: none;
+}
+
+.playerAtk1 {
+  height: 200px;
+  margin-top: 245px;
+  position:absolute;
+  left:50px;
+  top:130px;
+  z-index: 1;
+  display: none;
+}
+.playerAtk2 {
+  height: 200px;
+  margin-top: 245px;
+  position:absolute;
+  left:50px;
+  top:130px;
+  z-index: 1;
+  display: none;
+}
+.playerDead {
+  height: 200px;
+  margin-top: 245px;
+  position:absolute;
+  left:50px;
+  top:130px;
+  z-index: 1;
+  display: none;
+}
+
+.orcAtk1 {
+  height: 200px;
+  margin-top: 245px;
+  position:absolute;
+  left: 125px;
+  top: 130px;
+  z-index: 1;
+  display: none;
+}
+.orcAtk2 {
+  height: 200px;
+  margin-top: 245px;
+  position:absolute;
+  left: 125px;
+  top: 130px;
+  z-index: 1;
+  display: none;
+}
+.orcDead {
+  height: 200px;
+  margin-top: 245px;
+  position:absolute;
+  left: 125px;
+  top: 130px;
+  z-index: 1;
+  display: none;
 }
 
