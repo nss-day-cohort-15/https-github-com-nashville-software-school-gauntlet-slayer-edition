@@ -359,11 +359,11 @@ body {
   display: none;
 }
 .orcAtk2 {
-  height: 200px;
+  height: 180px;
   margin-top: 245px;
   position:absolute;
-  left: 125px;
-  top: 130px;
+  left: 85px;
+  top: 135px;
   z-index: 1;
   display: none;
 }
@@ -375,5 +375,9 @@ body {
   top: 130px;
   z-index: 1;
   display: none;
+}
+
+.hideMe{
+  visibility: hidden;
 }
 
