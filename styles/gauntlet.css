@@ -377,6 +377,10 @@ body {
   display: none;
 }
 
+.weapon__link {
+  display: none;
+}
+
 .hideMe{
   visibility: hidden;
 }

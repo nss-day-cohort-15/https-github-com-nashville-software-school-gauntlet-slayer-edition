@@ -1,20 +1,3 @@
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new Gauntlet.Armory.WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-
-console.log(warrior.toString());
-
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new Gauntlet.Armory.BroadSword());
-console.log(orc.toString());
-
-/*
-  Test code to generate a spell
- */
-var spell = new Gauntlet.SpellBook.Whirlwind();
-console.log("spell: ", spell.toString());
-
 
 $(document).ready(function() { //start game ***
 
@@ -34,6 +17,10 @@ $(document).ready(function() { //start game ***
           moveAlong = ($("#player-name").val() !== "");
         } else if (nextCard === "card--weapon") {
           moveAlong = ($("#player-name").val() !== "");
+
+          var allowedWeaponIDs = PlayerCharacter.class.allowedWeapon.map(id => `#${id}`).toString()
+          $(allowedWeaponIDs).show()
+
         } else if (nextCard === "card--battleground") {
           moveAlong = ($("#player-name").val() !== "");
         }
@@ -56,7 +43,7 @@ $(document).ready(function() { //start game ***
   //star character
   var PlayerCharacter = {}
 
-  // click event for classes
+  // click event for character name
   $("#startCharacter").click(function(e) {
 
     PlayerCharacter = new Gauntlet.Combatants.Human();
@@ -66,7 +53,7 @@ $(document).ready(function() { //start game ***
     //console.log(PlayerCharacter.playerName)
     newPlayerName = $("#player-Name").val()
     PlayerCharacter = new Gauntlet.Combatants.Player(newPlayerName);
-    console.log(PlayerCharacter)
+    // console.log(PlayerCharacter)
 
     //return PlayerCharacter
   });
@@ -77,9 +64,13 @@ $(document).ready(function() { //start game ***
   $(".class__link").click(function(e) {
     //console.log($(this).attr("id")) //shows id of button clicked on
     var selectedClass = $(this).attr("id");
-    PlayerCharacter.class = new Gauntlet.GuildHall[selectedClass]();
+    if(selectedClass !== 'randomClass'){
+      PlayerCharacter.class = new Gauntlet.GuildHall[selectedClass]();
+    }
+      else{
+        PlayerCharacter.generateClass()
+      }
     //console.log(PlayerCharacter.class)
-
   });
 
 
@@ -106,7 +97,7 @@ $(document).ready(function() { //start game ***
       PlayerCharacter.setWeapon(new Gauntlet.SpellBook.Whirlwind());
     }  
 
-    console.log(PlayerCharacter.weapon)
+    // console.log(PlayerCharacter.weapon)
 
 //click event for spells
 
@@ -116,18 +107,18 @@ $(document).ready(function() { //start game ***
   });
 
  $("#goButton").click(function(e) {
-    console.log(PlayerCharacter)
-    PlayerCharacter.species = "Monster";
+    // console.log(PlayerCharacter)
+    PlayerCharacter.species = "Human";
     //show created player
-    console.log(PlayerCharacter.toString());
+    // console.log(PlayerCharacter.toString());
 
     //make random enemy
     var RandomEnemy = new Gauntlet.Combatants.Orc();
     RandomEnemy.playerName = "An Orc";
     RandomEnemy.generateClass();
     RandomEnemy.generateWeapon();
-    console.log(RandomEnemy.toString());
-    // console.log(PlayerCharacter)
+    console.log(RandomEnemy);
+    console.log(PlayerCharacter);
 
     // $("#battleground").prepend("<div class='row hideMe'><div class='col-sm-2'></div><div class='col-sm-8'><p id='msg' class='msg graphic'>Welcome adventurer! You are " + PlayerCharacter.toString() + "<p></div></div>");
     // $("#msg").hide().fadeIn(2000).fadeOut(1200, function() {
@@ -136,9 +127,9 @@ $(document).ready(function() { //start game ***
     // });
 
     $("#narratorDiv").append("<p class='graphic' id='narratorP'>Welcome adventurer! You are " + PlayerCharacter.toString() + "<p>");
-    $("#narratorDiv").hide().fadeIn(2000).fadeOut(1200, function() {
+    $("#narratorDiv").hide().fadeIn(2000).delay(1000).fadeOut(1200, function() {
       $("#narratorP").text("Look out! It's " + RandomEnemy.toString() + "!")
-      $("#narratorDiv").hide().fadeIn(2000).fadeOut(1200);
+      $("#narratorDiv").hide().fadeIn(2000).delay(1000).fadeOut(1200);
     })
 
 
